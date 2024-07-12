@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Montserrat Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: #ffffff;
+            width: 100%;
+            height: 80px;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        #logo {
+            width: 60px;
+            filter: brightness(0) contrast(90%);
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav a {
+            font-family: 'Montserrat Alternates';
+            margin: 0 15px;
+            font-size: 1.25rem;
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #00afa6;
+            cursor: pointer;
+            text-decoration: overline;
+            text-shadow: 1px 2px 1px black;
+        }
+
+        nav a.active {
+            color: #3971FF;
+            cursor: pointer;
+            text-decoration: overline;
+            text-shadow: 1px 1px black;
+        }
+
+        section {
+            width: 100%;
+            min-height: 70vh;
+            padding: 80px 20px 20px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 100px 0;
+        }
+
+        .text-content {
+            margin: 20px;
+        }
+
+        .image-content {
+            flex: 1 1 500px;
+            text-align: center;
+        }
+
+        .image-content img {
+            width: 100%;
+        }
+
+        #home h1 {
+            font-size: 8rem;
+            line-height: 1.2;
+            text-shadow: 3px 2px 3px #3971FF;
+            padding-left: 4rem;
+        }
+
+        #home h1 span {
+            color: #3971FF;
+            text-shadow: 4px 3px 3px #000000;
+        }
+
+        #home p {
+            font-size: 1.25rem;
+            padding-left: 4rem;
+        }
+
+        #home h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            padding-left: 2rem;
+        }
+
+        .mywork {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 2rem;
+            box-sizing: border-box;
+            border-radius: 54px;
+            box-shadow: 1px 3px 10px black;
+            background: none;
+            border: 3px solid #3971FF;
+            color: #3971FF;
+            text-transform: uppercase;
+            transition: color 0.5s linear;
+            cursor: pointer;
+        }
+
+        #button{
+            margin-left: 10rem;
+        }
+
+        .mywork:hover {
+            color: #ffffff;
+            background: #3971FF;
+            box-shadow: 3px 3px 3px black;
+        }
+
+        .mywork:active {
+            box-shadow: 1px 1px 1px black;
+        }
+
+        /* About Section */
+        #about {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #about h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+            padding-left: 1rem;
+        }
+
+        #about span {
+            font-weight: 500;
+        }
+
+        #myphoto {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 35px;
+            box-shadow: 2px 2px 10px black;
+            margin: 20px;
+        }
+
+        #text {
+            text-align: justify;
+            max-width: 600px;
+            margin: 20px;
+            font-weight: 300;
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+
+        #passion-div {
+            max-width: 200px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        #passion-div h4 {
+            font-family: 'Montserrat Alternates';
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 10px 0;
+        }
+
+        #passion-div p {
+            line-height: 1.5;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        #about .image {
+            width: 50px;
+        }
+
+        #about .icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .project {
+            font-size: 15px;
+            box-sizing: border-box;
+            border-radius: 54px;
+            box-shadow: 1px 3px 10px black;
+            width: 200px;
+            height: 50px;
+            background: none;
+            border: 3px solid #3859CF;
+            color: #3859CF;
+            text-transform: uppercase;
+            transition: color 0.5s linear;
+            cursor: pointer;
+            z-index: -1;
+        }
+
+        .project:hover {
+            color: #ffffff;
+            background: #3859CF;
+            box-shadow: 3px 3px 3px black;
+        }
+
+        .project:active {
+            box-shadow: 1px 1px 1px black;
+        }
+
+        /* Work Section */
+        #work {
+            background: linear-gradient(45deg, #006078, #82BAC4, #aa8079, #E37C78);
+            background-size: 300% 300%;
+            animation: changecolor 10s ease-in-out infinite;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        @keyframes changecolor {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #work-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #work-content a {
+            height: 700px;
+            width: 500px;
+        }
+
+        #work-content a img {
+            border: 2px solid black;
+            border-radius: 20px;
+            width: 500px;
+            height: 100%;
+            max-width: 400px;
+            transition: transform 0.3s;
+            box-shadow: 2px 2px 10px black;
+            margin: 10px;
+        }
+
+        #work-content a img:hover {
+            transform: scale(1.05);
+            box-shadow: 2px 2px 10px 3px black;
+        }
+
+        #my-work-h1 {
+            font-size: 4rem;
+            text-shadow: 1px 2px 10px #040404;
+            color: #4d39ff;
+            margin-bottom: 20px;
+        }
+
+        #my-work-h1 span {
+            color: #D9D9D9;
+        }
+
+        /* Contact Section */
+        #contact {
+            height: 90vh;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        #name-email-text,
+        #message-text {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px;
+        }
+
+        #name-email-text input,
+        #message-text textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin: 10px;
+            border: 2px solid black;
+        }
+
+        #message-text textarea {
+            height: 200px;
+        }
+
+        .contact-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            border-radius: 54px;
+            box-shadow: 1px 3px 10px black;
+            background: none;
+            border: 3px solid #3971FF;
+            color: #3971FF;
+            text-transform: uppercase;
+            transition: color 0.5s linear;
+            cursor: pointer;
+        }
+
+        .contact-button:hover {
+            color: #ffffff;
+            background: #3971FF;
+            box-shadow: 3px 3px 3px black;
+        }
+
+        .contact-button:active {
+            box-shadow: 1px 1px 1px black;
+        }
+
+        #text-wrapper{
+            display: flex;
+        }
+
+        #button-project{
+            padding: 50px 0 0 100px;
+        }
+
+        footer {
+            text-align: center;
+            font-family: 'Montserrat Alternates';
+            background: #D9D9D9;
+            padding: 10px 0;
+            font-size: 0.875rem;
+        }
+
+        footer span {
+            color: #FF9900;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                margin: 0;
+                padding: 0;
+            }
+            .mywork {
+                padding: 10px 20px;
+                font-size: 1rem;
+                box-sizing: border-box;
+                border-radius: 54px;
+                box-shadow: 1px 3px 10px black;
+                background: none;
+                border: 3px solid #3971FF;
+                color: #3971FF;
+                text-transform: uppercase;
+                transition: color 0.5s linear;
+                cursor: pointer;
+            }
+
+            header nav {
+                margin: 10px 0;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            #home {
+                flex-direction: column;
+                padding: 90px 20px;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            #home p,
+            #home h3 {
+                text-align: center;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #myphoto {
+                margin: 20px 0;
+            }
+
+            #text {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            #work-content a{
+                height: 300px;
+                width: 100%;
+                padding: 20px;
+            }
+            #work-content a img {
+                border: 2px solid black;
+                border-radius: 20px;
+                width: 300px;
+                height: 100%;
+                transition: transform 0.3s;
+                box-shadow: 2px 2px 10px black;
+                margin: 10px;
+            }
+        }
+        @media (max-width: 450px) {
+
+            .mywork {
+                margin: 20px 0 0 20px;
+                padding: 10px 20px;
+                font-size: 1rem;
+                box-sizing: border-box;
+                border-radius: 54px;
+                box-shadow: 1px 3px 10px black;
+                background: none;
+                border: 3px solid #3971FF;
+                color: #3971FF;
+                text-transform: uppercase;
+                transition: color 0.5s linear;
+                cursor: pointer;
+            }
+
+            #button-project{
+                padding: 50px 0 0 120px;
+            }
+
+            #contact{
+                height: 70vh;
+                padding: 12px 20px 20px;
+            }
+
+            #button{
+                margin-left: 5rem;
+            }
+
+            #text-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            header nav {
+                margin: 10px 0;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            #home {
+                flex-direction: column;
+                padding: 90px 0 0 0;
+            }
+
+            #home h1 {
+                font-size: 3rem;
+                line-height: 1.2;
+                padding-left: 1rem;
+            }
+
+            #home h3{
+                font-size: 20px;
+                padding-left: .1rem;
+            }
+
+            #home p {
+                font-size: 14px;
+                padding-left: 1rem;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #myphoto {
+                margin: 20px 0;
+            }
+
+            #text {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            #work-content a{
+                height: 300px;
+                width: 100%;
+                padding: 20px;
+            }
+            #work-content a img {
+                border: 2px solid black;
+                border-radius: 20px;
+                width: 300px;
+                height: 100%;
+                transition: transform 0.3s;
+                box-shadow: 2px 2px 10px black;
+                margin: 10px;
+            }
+        }
+        @media (max-width: 420px) {
+            header {
+                padding: 10px;
+            }
+            .mywork {
+                margin: 20px 0 0 0px;
+                padding: 10px 20px;
+                font-size: 1rem;
+                box-sizing: border-box;
+                border-radius: 54px;
+                box-shadow: 1px 3px 10px black;
+                background: none;
+                border: 3px solid #3971FF;
+                color: #3971FF;
+                text-transform: uppercase;
+                transition: color 0.5s linear;
+                cursor: pointer;
+            }
+
+            #contact{
+                height: 70vh;
+                padding: 12px 20px 20px;
+            }
+
+            #button{
+                margin-left: 5rem;
+            }
+
+            #text-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            header nav {
+                margin: 10px 0;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                padding-left: 1rem;
+            }
+
+            #home h3{
+                font-size: 20px;
+                padding-left: .1rem;
+            }
+
+            #home p {
+                font-size: 14px;
+                padding-left: 1rem;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #myphoto {
+                margin: 20px 0;
+            }
+
+            #text {
+                text-align: center;
+                margin: 20px 0 0 20px;
+                font-size: 14px;
+            }
+
+            #work-content a{
+                height: 300px;
+                width: 100%;
+                padding: 20px;
+            }
+            #work-content a img {
+                border: 2px solid black;
+                border-radius: 20px;
+                width: 300px;
+                height: 100%;
+                transition: transform 0.3s;
+                box-shadow: 2px 2px 10px black;
+                margin: 10px;
+            }
+        }
+        @media (max-width: 320px) {
+
+            html,body{
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+
+
+            header {
+                padding: 0px;
+            }
+            .mywork {
+                margin: 20px 0 0 0px;
+                padding: 10px 20px;
+                font-size: 1rem;
+                box-sizing: border-box;
+                border-radius: 54px;
+                box-shadow: 1px 3px 10px black;
+                background: none;
+                border: 3px solid #3971FF;
+                color: #3971FF;
+                text-transform: uppercase;
+                transition: color 0.5s linear;
+                cursor: pointer;
+            }
+
+            #my-work-h1 {
+                font-size: 3rem;
+                text-shadow: 1px 2px 10px #040404;
+                color: #4d39ff;
+                margin-bottom: 20px;
+            }
+
+            #contact{
+                height: 70vh;
+                padding: 12px 20px 20px;
+            }
+
+            #button{
+                margin-left: 5rem;
+            }
+
+            #text-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            header nav {
+                margin: 0;
+            }
+            .image-content {
+                flex: 1 1 0px;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 10px;
+                font-size: 14px;
+            }
+
+            #button-project {
+                padding: 50px 0 0 66px;
+            }
+
+            #home h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                padding-left: 1rem;
+            }
+
+            #home h3{
+                font-size: 20px;
+                padding-left: .1rem;
+            }
+
+            #home p {
+                font-size: 14px;
+                padding-left: 1rem;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #myphoto {
+                margin: 20px 0;
+                max-width: 200px;
+            }
+
+            #text {
+                text-align: center;
+                margin: 20px 0 0 20px;
+                font-size: 14px;
+            }
+
+            #work-content a{
+                height: 300px;
+                width: 100%;
+                padding: 20px;
+            }
+            #work-content a img {
+                border: 2px solid black;
+                border-radius: 20px;
+                width: 200px;
+                height: 100%;
+                transition: transform 0.3s;
+                box-shadow: 2px 2px 10px black;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="active" href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#home"><img id="logo" src="logo1.png" alt="logo"></a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="text-content">
+            <h3>Hi! I'm John Benjie Siena</h3>
+            <h1>Craftng<br><span>Tomorrow's<br>Web</span></h1>
+            <p>Tech enthusiast shaping for future web.</p>
+            <div id="button">
+                <a href="#work"><button class="mywork">My Work</button></a>
+                
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="photo.png" alt="home image">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-wrapper">
+            <div>
+                <h1><span>Passion Fuels</span><br>Every<br>Project's Fire</h1>
+                <img src="photo-1.png" alt="My Picture" id="myphoto">
+            </div>
+        </div>
+        <div>
+            <div id="text-wrapper">
+                <p id="text">I’m currently a second-year college student at Dalubhasaan ng Lungsod ng Lucena,
+                    studying Information Technology. I’m passionate about exploring the latest advancements in
+                    technology and how they
+                    can be applied to solve real-world problems. Eager to learn and willing to grow in this
+                    ever-evolving field!
+                </p>
+                <div id="button-project">
+                    <a href="#work"><button class="project">Projects</button></a>
+                </div>
+            </div>
+            <div class="icons">
+                <div id="passion-div">
+                    <img src="passion.png" alt="passion image" class="image">
+                    <h4>Passion in every work</h4>
+                    <p id="passion-text">In every pixel and line of code, my passion for web design shines through.</p>
+                </div>
+                <div id="passion-div">
+                    <img src="collab.png" alt="collaboration image" class="image">
+                    <h4>Collaboration on top</h4>
+                    <p id="passion-text">Collaboration is the cornerstone of exceptional web design.</p>
+                </div>
+                <div id="passion-div">
+                    <img src="sustain.png" alt="sustainability image" class="image">
+                    <h4>Sustainability on check</h4>
+                    <p id="passion-text">Sustainability in web design goes beyond just aesthetics and functionality.</p>
+                </div>
+                <div id="passion-div">
+                    <img src="creativity.png" alt="creativity image" class="image">
+                    <h4>Creativity unleashed</h4>
+                    <p id="passion-text">Creativity unleashed in web design is a powerful force that transcends
+                        boundaries and transforms digital landscapes into captivating experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h1 id="my-work-h1">My <span>Work</span></h1>
+        <div id="work-content">
+            <a href="https://jbsiena.github.io/rock-paper-scissor/" target="_blank"><img src="rockpaper.png"
+                    alt="Calculator"></a>
+            <a href="https://jbsiena.github.io/ipt101-calculator-app/" target="_blank"><img src="calculator.png"
+                    alt="Calculator"></a>
+            <a href="https://jbsiena.github.io/online-resume/" target="_blank"><img src="resume.png"
+                    alt="Calculator"></a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-wrapper">
+            <div id="name-email-text">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+            </div>
+            <div id="message-text">
+                <textarea placeholder="Your Message"></textarea>
+            </div>
+            <button class="contact-button">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright &copy; 2024 | All Rights Reserved<br>Developed by <span
+            style="color: #FF9900; text-decoration: underline;">John Benjie Siena</span></p>
+    </footer>
+
+    <script>
+        let mysection = document.querySelectorAll('section');
+        let mynavlink = document.querySelectorAll('header nav a');
+
+        window.onscroll = () => {
+            mysection.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if (top >= offset && top < offset + height) {
+                    mynavlink.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    })
+                };
+            });
+        };
+
+    </script>
+</body>
+
+</html>
